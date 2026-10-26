@@ -1,1 +1,120 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Basket World</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <header class="topbar">
+        <h1>basket<span>world</span> 🧺</h1>
+        <p>Your world. Your wishlist.</p>
+    </header>
+
+    <main>
+        <section id="home-screen">
+            <div class="welcome">
+                <h2>Your dream basket awaits.</h2>
+                <p>Collect everything you love in one place.</p>
+            </div>
+
+            <div id="basket-grid" class="basket-grid"></div>
+
+            <button id="create-basket" class="create-button">
+                <span>＋</span>
+                Create New Basket
+            </button>
+        </section>
+
+        <section id="basket-screen" class="hidden">
+            <button id="back-button" class="back-button">
+                ← My Baskets
+            </button>
+
+            <div class="basket-heading">
+                <h2 id="basket-title">My Basket</h2>
+                <button id="shop-button" class="shop-button">
+                    🛍️ Shop Products
+                </button>
+            </div>
+
+            <div class="basket-controls">
+                <label for="basket-color">Basket colour:</label>
+
+                <input
+                    type="color"
+                    id="basket-color"
+                    value="#f3a8c7"
+                >
+
+                <button id="rotate-button">
+                    ↻ Rotate
+                </button>
+            </div>
+
+            <div id="basket-3d" class="basket-3d"></div>
+
+            <p class="hint">
+                Drag products into your basket. Drag to rotate the view.
+            </p>
+
+            <div id="basket-items" class="basket-items"></div>
+        </section>
+    </main>
+
+    <div id="shop-panel" class="shop-panel hidden">
+        <div class="shop-header">
+            <div>
+                <h2>Find your favourites ✨</h2>
+                <p>What are we adding today?</p>
+            </div>
+
+            <button id="close-shop" aria-label="Close shop">
+                ✕
+            </button>
+        </div>
+
+        <form id="search-form">
+            <input
+                id="search-input"
+                type="search"
+                placeholder="Search lip gloss, bags, books..."
+                aria-label="Search products"
+            >
+
+            <button type="submit">Search</button>
+        </form>
+
+        <div id="categories" class="categories">
+            <button data-query="Makeup">💄 Makeup</button>
+            <button data-query="Clothing">👗 Clothes</button>
+            <button data-query="Bags">👜 Bags</button>
+            <button data-query="Books">📚 Books</button>
+            <button data-query="Albums">🎵 Albums</button>
+            <button data-query="Stationery">✏️ Stationery</button>
+        </div>
+
+        <p id="search-status" aria-live="polite">
+            Browse sample products or search for something.
+        </p>
+
+        <div id="product-grid" class="product-grid"></div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
